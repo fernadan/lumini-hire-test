@@ -1,0 +1,87 @@
+﻿
+@{
+    Layout = null;
+}
+@model LuminiHire.Models.Data
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lumini Hire - Busca Score Card</title>
+
+    <environment include="Development">
+        <link rel="stylesheet" href="~/lib/twitter-bootstrap/css/bootstrap.css" />
+        <script src="~/lib/jquery/dist/jquery.js"></script>
+        <script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+        <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+    </environment>
+    <environment exclude="Development">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.min.css"
+              asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap.min.css"
+              asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute"
+              crossorigin="anonymous"
+              integrity="sha256-eSi1q2PG6J7g7ib17yAaWMcrr5GrtohYChqibrV7PBE=" />
+        <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-2.2.0.min.js"></script>
+        <script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.16.0/jquery.validate.min.js"></script>
+        <script src="https://ajax.aspnetcdn.com/ajax/jquery.validation.unobtrusive/3.2.6/jquery.validate.unobtrusive.min.js"></script>
+    </environment>
+    <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="~/lib/font-awesome/css/all.css" />
+
+    <script src="~/lib/font-awesome/js/all.js"></script>
+</head>
+<body>
+    <header class="navbar navbar-expand navbar-dark flex-column flex-md-row bd-navbar">
+        <a class="navbar-brand" href="#">Lumini Hire Test</a>
+
+        <div class="collapse navbar-collapse flex-column" id="navbarSupportedContent">
+            <form class="form-inline" method="get" asp-controller="Home" asp-action="Get">
+                <div class="input-group search-field-size">
+                    <input type="text" class="form-control" name="query" asp-for="search.query" placeholder="O que você está procurando?">
+                    <div class="input-group-append">
+                        <button class="btn btn-secondary roxo-principal-fundo" type="submit" title="Buscar">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+                </div>
+            </form>
+            <span class="qnt-encontrados text-left">Encontrados @Model.qntFounded resultados (@Model.timeToFind segundos)</span>
+        </div>
+    </header>
+
+    <div class="container">
+    @foreach (Elasticsearch.Context.Index.Scorecard sc in Model.Schools)
+    {
+        <div class="row row-item">
+            <span class="title-item roxo-principal-letra">@sc.instnm</span>
+            <span class="title-sub-item">ID salvo: @sc.unitid</span>
+        </div>
+
+    }
+
+        <div class="row">
+            <nav>
+                <ul class="pagination">
+                    @for (int i = 1; i <= Model.qntPages; i++)
+                    {
+                        @if (!Context.Request.Query.ContainsKey("page") && i == 1)
+                        {
+                    <li class="page-item paginacao-link-active">@i.ToString()</li>
+                        }
+                        else if (Context.Request.Query.ContainsKey("page") && Context.Request.Query["page"].ToString() == i.ToString())
+                        {
+                    <li class="page-item paginacao-link-active">@i.ToString()</li>
+                        }
+                        else
+                        {
+                    <li class="page-item"><a class="page-link paginacao-link" href="https://@Context.Request.Host@Context.Request.Path?query=@Context.Request.Query["query"].ToString()&page=@i.ToString()">@i.ToString()</a></li>
+                        }
+                    }
+                </ul>
+            </nav>
+        </div>
+    </div>
+</body>
+</html>

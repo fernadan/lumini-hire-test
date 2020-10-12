@@ -2,6 +2,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Elasticsearch.Context.Application;
+using Elasticsearch.Context.Index;
+using Elasticsearch.Context.Representation;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -9,6 +12,7 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using LuminiHire.Configuration;
 
 namespace LuminiHire
 {
@@ -23,6 +27,10 @@ namespace LuminiHire
 
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddElasticsearch(Configuration);
+
+            services.AddTransient<IScorecardApplication, ScorecardApplication>();
+
             services.Configure<CookiePolicyOptions>(options =>
             {
                 options.CheckConsentNeeded = context => true;
@@ -55,7 +63,9 @@ namespace LuminiHire
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapRazorPages();
+                endpoints.MapControllerRoute(
+                    name: "default",
+                    pattern: "{controller=Home}/{action=Index}/{id?}");
             });
         }
     }

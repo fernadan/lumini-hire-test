@@ -62,3 +62,29 @@ Por medida de alinhamento com desempenho e possíveis bugs, decidi atualizar a v
 Foram utilizadas como base as seguintes postagens:
 * https://medium.com/@alexandre.malavasi/migra%C3%A7%C3%A3o-de-asp-net-core-2-2-para-3-1-projeto-real-6840afaa8845
 * https://docs.microsoft.com/pt-br/aspnet/core/migration/22-to-30?view=aspnetcore-3.1&tabs=visual-studio
+
+#### 3) Criação da tela de consulta
+Esta tela não necessita de autenticação e ficará aberta para utilização externa.
+
+* O texto digitado será buscando no campo que contem o nome das escolas cadastradas.
+* Não são permitidas consultas com o campo de texto vazio.
+* Não são permitidas consultas com o campo de texto contendo menos que 3 caracteres.
+
+#### 4) Criação da tela de retorno de consulta
+Esta tela não necessita de autenticação e ficará aberta para utilização externa. Ela mostrará os resultados obtidos com a consulta, sempre mostrando o NOME e o ID da escola encontrada.
+
+* O texto digitado será buscando no campo que contem o nome das escolas cadastradas.
+* Não são permitidas consultas com o campo de texto vazio.
+* Não são permitidas consultas com o campo de texto contendo menos que 3 caracteres.
+* São mostradas a quantidade de retornos obtidos e o tempo necessário para a consulta.
+* A mesma conta com paginação.
+
+#### 5) Criação da tela de dashboard
+Esta tela demanda autenticação e apenas usuários autorizados terão acesso.
+Nela é possível verificar as seguintes informações:
+
+* Quantidade de documentos inseridos no índice
+* Quantidade de consultas realizadas
+* Palavras pesquisadas
+* Quantidades de consultas por palavra
+* Quantidade de retornos por palavra
