@@ -70,6 +70,8 @@ Esta tela não necessita de autenticação e ficará aberta para utilização ex
 * Não são permitidas consultas com o campo de texto vazio.
 * Não são permitidas consultas com o campo de texto contendo menos que 3 caracteres.
 
+![](/showcase/TelaConsulta.png)
+
 #### 4) Criação da tela de retorno de consulta
 Esta tela não necessita de autenticação e ficará aberta para utilização externa. Ela mostrará os resultados obtidos com a consulta, sempre mostrando o NOME e o ID da escola encontrada.
 
