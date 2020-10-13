@@ -13,6 +13,10 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using LuminiHire.Configuration;
+using LuminiHire.Contexts;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity;
+using LuminiHire.Models;
 
 namespace LuminiHire
 {
@@ -27,6 +31,10 @@ namespace LuminiHire
 
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddDbContext<SQLiteDBContext>(options => options.UseSqlite(Configuration.GetConnectionString("DefaultConnection")));
+
+            services.AddIdentity<User, IdentityRole>().AddEntityFrameworkStores<SQLiteDBContext>();
+
             services.AddElasticsearch(Configuration);
 
             services.AddTransient<IScorecardApplication, ScorecardApplication>();

@@ -19,20 +19,31 @@
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark border-bottom box-shadow mb-3 bd-navbar">
             <div class="container">
-                <a class="navbar-brand" asp-area="" asp-page="/Index">LuminiHire</a>
+                <a class="navbar-brand" asp-area="" asp-page="/Index">Lumini Hire</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
+                <div class="navbar-collapse collapse d-sm-inline-flex">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Index">Home</a>
+                            <a class="nav-link" asp-area="" asp-controller="Dashboard" asp-action="Index">Dashboard</a>
                         </li>
+                    </ul>
+                    <ul class="navbar-nav ml-auto">
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Privacy">Privacy</a>
+                            <a class="nav-link" asp-area="" asp-controller="Account" asp-action="Register">Criar Usuário</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <form method="post" class="nav-link" asp-controller="account" asp-action="logout">
+                                <button type="submit" style="width:auto"
+                                        class="nav-link btn btn-link py-0">
+                                    Sair
+                                </button>
+                            </form>
                         </li>
                     </ul>
                 </div>
@@ -48,7 +59,7 @@
 
     <footer class="border-top footer text-muted">
         <div class="container">
-            &copy; 2019 - LuminiHire - <a asp-area="" asp-page="/Privacy">Privacy</a>
+            &copy; 2019 - LuminiHire
         </div>
     </footer>
 

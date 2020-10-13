@@ -79,11 +79,18 @@ Esta tela não necessita de autenticação e ficará aberta para utilização ex
 * São mostradas a quantidade de retornos obtidos e o tempo necessário para a consulta.
 * A mesma conta com paginação.
 
-#### 5) Criação da tela de dashboard
+#### 5) Criação do cadastro de usuário e tela de login utilizando o ASP.NET Identity
+Usuário para teste:
+* teste
+* Teste@1234
+
+#### 6) Criação da tela de dashboard
 Esta tela demanda autenticação e apenas usuários autorizados terão acesso.
-Nela é possível verificar as seguintes informações:
+Nela é possível verificar a seguinte informação:
 
 * Quantidade de documentos inseridos no índice
+
+***Futuras Estatísticas***
 * Quantidade de consultas realizadas
 * Palavras pesquisadas
 * Quantidades de consultas por palavra

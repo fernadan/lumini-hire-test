@@ -140,3 +140,31 @@ body {
     margin-left: -1px;
     line-height: 1.25;
 }
+
+.block-stats {
+    background-color:gray;
+    border-radius: 5px;
+    padding:20px;
+    margin:20px;
+}
+
+.block-stats-title {
+    font-size: 15px;
+    font-weight: bold;
+    color: #563d7c;
+}
+
+.block-stats-data {
+    font-size: 45px;
+    font-weight: bold;
+    color: #FFFFFF;
+}
+
+.nav-item a {
+    color: #FFFFFF;
+    transition: color 0.8s;
+}
+
+.nav-item a:hover {
+    color: #000000;
+}

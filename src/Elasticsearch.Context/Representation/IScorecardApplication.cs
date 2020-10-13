@@ -8,6 +8,8 @@ namespace Elasticsearch.Context.Representation
 {
     public interface IScorecardApplication
     {
+        public long GetCountDocs();
+
         ICollection<Scorecard> GetByName(string name, int from);
 
         public ScorecardAggregationModel GetScorecardAggregation(string name);

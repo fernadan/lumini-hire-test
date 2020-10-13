@@ -7,7 +7,16 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{A1735760-33E
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LuminiHire", "src\LuminiHire\LuminiHire.csproj", "{1348443F-DCAF-4A89-8DE0-4C4EF71AFA86}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Elasticsearch.Context", "Elasticsearch.Context\Elasticsearch.Context.csproj", "{656B6D59-166E-429A-A8AB-5B3FFF7CFC26}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Elasticsearch.Context", "src\Elasticsearch.Context\Elasticsearch.Context.csproj", "{656B6D59-166E-429A-A8AB-5B3FFF7CFC26}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "showcase", "showcase", "{C10ECA8C-7406-4428-A25A-B3B4518AC3B7}"
+	ProjectSection(SolutionItems) = preProject
+		showcase\TelaConsulta.png = showcase\TelaConsulta.png
+		showcase\TelaConsultaRetorno.png = showcase\TelaConsultaRetorno.png
+		showcase\TelaConsultaRetorno2.png = showcase\TelaConsultaRetorno2.png
+		showcase\TelaRestritaDashboard.png = showcase\TelaRestritaDashboard.png
+		showcase\TelaRestritaLogin.png = showcase\TelaRestritaLogin.png
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

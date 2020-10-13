@@ -18,6 +18,13 @@ namespace Elasticsearch.Context.Application
             _elasticClient = elasticClient;
         }
 
+        public long GetCountDocs()
+        {
+            var countResponse = _elasticClient.Count<Scorecard>();
+
+            return countResponse.Count;
+        }
+
         public ICollection<Scorecard> GetByName(string name, int from)
         {
             var query = new QueryContainerDescriptor<Scorecard>().Term(t => t.Field(f => f.instnm).Value(name));
