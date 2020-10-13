@@ -57,6 +57,9 @@ Para a carga no elasticsearch foi utilizado o ***LogStash***, ferramenta da elas
 
 Na pasta ***"sample_data/logstash"*** do projeto, constam os arquivos modificados.
 
+A aplicação foi desenvolvida utilizando uma instância do elasticsearch no docker. Porém, para facilitar os testes e análise da solução, foi criada uma instância do Elastic Cloud com os mesmos dados.
+Desta forma não é necessário configurar uma instância do elasticsearch para que a aplicação funcione corretamente. 
+
 #### 2) Atualização da solução de ASP.NET Core 2.2 para ASP.NET Core 3.1
 Por medida de alinhamento com desempenho e possíveis bugs, decidi atualizar a versão da aplicação Core para a 3.1.
 Foram utilizadas como base as seguintes postagens:
@@ -105,3 +108,7 @@ Nela é possível verificar a seguinte informação:
 * Quantidade de retornos por palavra
 
 ![](/showcase/TelaRestritaDashboard.png)
+
+## Executar a aplicação
+Para a realização de testes na aplicação basta abrir a solução no Visual Studio e executar a mesma.
+
